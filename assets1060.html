@@ -1,0 +1,61 @@
+<main ng-controller="Assets1060Ctrl as ctrl" layout="column" flex>
+  <md-toolbar class="app-toolbar">
+    <div class="md-toolbar-tools" layout="row" layout-align="end center">
+      {{main.menu.menuName}} <span flex></span>
+      <ng-include
+        src="'/templates/menu.html'"
+        ng-repeat="menu in ctrl.assetMenu"
+      ></ng-include>
+    </div>
+  </md-toolbar>
+  <!-- <h1>assets 1060</h1> -->
+  <div
+    class="loading"
+    ng-show="ctrl.isLoading"
+    layout="row"
+    layout-align="center center"
+    layout-fill
+  >
+    <md-progress-circular
+      class="md-hue-2"
+      md-diameter="100px"
+    ></md-progress-circular>
+  </div>
+  <div layout="row" flex>
+    <nav resizable class="rightBar" r-directions="['right']">
+      <idl-tabs
+        layout-fill
+        layout="column"
+        on-select-node="ctrl.search('tree', q)"
+      >
+      </idl-tabs>
+    </nav>
+    <div flex layout="column">
+      <header>
+        <search-panel on-search='ctrl.search("search", q)'></search-panel>
+      </header>
+
+      <article flex layout="column">
+        <div class="content" flex>
+          <ac-grid
+            options="ctrl.prodGrid"
+            ac-api="ctrl.api"
+            ac-loading="ctrl.isLoading"
+            ac-change="ctrl.cahangeSelection(selected)"
+          >
+          </ac-grid>
+        </div>
+        <div class="detail topBar" resizable r-directions="['top']">
+          <bottom-grid-select
+            parent-grid="ctrl.prodGrid"
+            child-grid="ctrl.prodSelect"
+            get-Selection="ctrl.api.getSelection"
+            menus="ctrl.bottomMenu"
+            menu-click="ctrl.menuClick(menu, event)"
+          >
+          </bottom-grid-select>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
