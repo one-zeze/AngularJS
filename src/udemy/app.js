@@ -5,12 +5,30 @@ myApp.controller("mainController", [
   "$filter",
   "$timeout",
   //   "$log",
-  function ($scope, $filter, $timeout) {
-    $scope.handle = "";
-    $scope.characters = 5;
-    $scope.lowercaseHandle = function () {
-      return $filter("lowercase")($scope.handle);
+  function ($scope, $filter, $timeout, dialogDemo3) {
+    $scope.alertClick = function () {
+      alert("Clicked#!@");
     };
+    $scope.name = "John Wick";
+
+    // $scope.handle = "";
+    // $scope.characters = 5;
+    // $scope.result = null;
+    // $scope.rules = [
+    //   { rulename: "Must be 5 characters" },
+    //   { rulename: "Must not be used elsewhere" },
+    //   { rulename: "Must be cool" },
+    // ];
+
+    // $scope.lowercaseHandle = function () {
+    //   return $filter("lowercase")($scope.handle);
+    // };
+
+    // $scope.btnHandler = function () {
+    //   console.log($scope.rules);
+    //   $scope.result = $scope.lowercaseHandle();
+    // };
+
     // $scope.$watch("handle", function (newValue, oldValue) {
     //   console.log("Old:" + oldValue);
     //   console.log("New:" + newValue);
@@ -28,7 +46,7 @@ myApp.controller("mainController", [
 //    a=$scope, b=$http, c=$log
 
 //min.js
-// 따옴표"" 안에 작성한 텍스트는 그대로
+// 따옴표"" 안에 작성한 텍스트는 그대로, minfy 안된다
 // var myApp = angular.module("myApp", []);
 // myApp.controller("mainController", [
 //   "$scope",

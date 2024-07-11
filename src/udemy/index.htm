@@ -25,7 +25,7 @@
     <script src="app.js"></script>
   </head>
   <body>
-    <header>
+    <!-- <header>
       <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
@@ -39,19 +39,28 @@
           </ul>
         </div>
       </nav>
-    </header>
+    </header> -->
 
     <div class="container">
       <div ng-controller="mainController">
         <div>
-          <label>Waht is your facebook handle?</label>
+          <input type="button" value="Click me" ng-click="alertClick()" />
+          <br />
+          <div ng-cloak>{{name}}</div>
+          <!-- <label>Waht is your word?</label>
           <input type="text" ng-model="handle" />
         </div>
         <div class="alert" ng-hide="handle.length === 5">
           Must be 5 characters
         </div>
         <hr />
-        <h1>FaceBook.com/{{ lowercaseHandle() }}</h1>
+        <h1>TextBtn.com/{{ lowercaseHandle() }}</h1>
+        <button ng-click="btnHandler()">{{ result || "null" }}</button>
+
+        <h3>Rules</h3>
+        <ul>
+          <li ng-repeat="r in rules">{{r.rulename}}</li>
+        </ul> -->
       </div>
     </div>
   </body>
