@@ -1,0 +1,238 @@
+<div class="markdown prose w-full break-words dark:prose-invert light">
+  <p>{{soju}}명 {{number}}병</p>
+  <p>
+    아래 표는 JPA의 <code>CriteriaBuilder</code>가 제공하는 다양한 표현식을
+    한눈에 볼 수 있도록 정리한 것입니다. 이 표는 <code>CriteriaBuilder</code>를
+    사용할 때 자주 사용되는 메서드와 그 설명을 포함합니다.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th><strong>메서드</strong></th>
+        <th><strong>설명</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>equal(Expression&lt;?&gt; x, Object y)</code></td>
+        <td><code>x</code>와 <code>y</code>가 같은지 비교</td>
+      </tr>
+      <tr>
+        <td><code>notEqual(Expression&lt;?&gt; x, Object y)</code></td>
+        <td><code>x</code>와 <code>y</code>가 다른지 비교</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >greaterThan(Expression&lt;? extends Comparable&gt; x, Comparable
+            y)</code
+          >
+        </td>
+        <td><code>x</code>가 <code>y</code>보다 큰지 비교</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >greaterThanOrEqualTo(Expression&lt;? extends Comparable&gt; x,
+            Comparable y)</code
+          >
+        </td>
+        <td><code>x</code>가 <code>y</code>보다 크거나 같은지 비교</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >lessThan(Expression&lt;? extends Comparable&gt; x, Comparable
+            y)</code
+          >
+        </td>
+        <td><code>x</code>가 <code>y</code>보다 작은지 비교</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >lessThanOrEqualTo(Expression&lt;? extends Comparable&gt; x,
+            Comparable y)</code
+          >
+        </td>
+        <td><code>x</code>가 <code>y</code>보다 작거나 같은지 비교</td>
+      </tr>
+      <tr>
+        <td><code>like(Expression&lt;String&gt; x, String pattern)</code></td>
+        <td>
+          <code>x</code>가 <code>pattern</code>과 일치하는지 비교 (SQL
+          <code>LIKE</code>와 유사)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>notLike(Expression&lt;String&gt; x, String pattern)</code>
+        </td>
+        <td><code>x</code>가 <code>pattern</code>과 일치하지 않는지 비교</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >between(Expression&lt;? extends Comparable&gt; v, Comparable x,
+            Comparable y)</code
+          >
+        </td>
+        <td>
+          <code>v</code>가 <code>x</code>와 <code>y</code> 사이에 있는지 비교
+        </td>
+      </tr>
+      <tr>
+        <td><code>in(Expression&lt;?&gt; x)</code></td>
+        <td><code>x</code>가 주어진 값 목록에 있는지 비교</td>
+      </tr>
+      <tr>
+        <td><code>isNull(Expression&lt;?&gt; x)</code></td>
+        <td><code>x</code>가 <code>null</code>인지 비교</td>
+      </tr>
+      <tr>
+        <td><code>isNotNull(Expression&lt;?&gt; x)</code></td>
+        <td><code>x</code>가 <code>null</code>이 아닌지 비교</td>
+      </tr>
+      <tr>
+        <td><code>and(Predicate... restrictions)</code></td>
+        <td>여러 조건을 <code>AND</code>로 결합</td>
+      </tr>
+      <tr>
+        <td><code>or(Predicate... restrictions)</code></td>
+        <td>여러 조건을 <code>OR</code>로 결합</td>
+      </tr>
+      <tr>
+        <td><code>not(Predicate restriction)</code></td>
+        <td>조건을 부정</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >sum(Expression&lt;? extends Number&gt; x, Expression&lt;? extends
+            Number&gt; y)</code
+          >
+        </td>
+        <td><code>x</code>와 <code>y</code>의 합</td>
+      </tr>
+      <tr>
+        <td><code>avg(Expression&lt;? extends Number&gt; x)</code></td>
+        <td><code>x</code>의 평균</td>
+      </tr>
+      <tr>
+        <td><code>max(Expression&lt;? extends Number&gt; x)</code></td>
+        <td><code>x</code>의 최대값</td>
+      </tr>
+      <tr>
+        <td><code>min(Expression&lt;? extends Number&gt; x)</code></td>
+        <td><code>x</code>의 최소값</td>
+      </tr>
+      <tr>
+        <td><code>count(Expression&lt;?&gt; x)</code></td>
+        <td><code>x</code>의 개수를 셈</td>
+      </tr>
+      <tr>
+        <td><code>countDistinct(Expression&lt;?&gt; x)</code></td>
+        <td>중복을 제외한 <code>x</code>의 개수를 셈</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >concat(Expression&lt;String&gt; x, Expression&lt;String&gt;
+            y)</code
+          >
+        </td>
+        <td><code>x</code>와 <code>y</code>를 문자열로 결합</td>
+      </tr>
+      <tr>
+        <td>
+          <code>substring(Expression&lt;String&gt; x, int from, int len)</code>
+        </td>
+        <td><code>x</code>의 부분 문자열을 추출</td>
+      </tr>
+      <tr>
+        <td><code>lower(Expression&lt;String&gt; x)</code></td>
+        <td><code>x</code>를 소문자로 변환</td>
+      </tr>
+      <tr>
+        <td><code>upper(Expression&lt;String&gt; x)</code></td>
+        <td><code>x</code>를 대문자로 변환</td>
+      </tr>
+      <tr>
+        <td><code>trim(Expression&lt;String&gt; x)</code></td>
+        <td><code>x</code>의 앞뒤 공백을 제거</td>
+      </tr>
+      <tr>
+        <td><code>length(Expression&lt;String&gt; x)</code></td>
+        <td><code>x</code>의 길이</td>
+      </tr>
+      <tr>
+        <td><code>abs(Expression&lt;? extends Number&gt; x)</code></td>
+        <td><code>x</code>의 절대값</td>
+      </tr>
+      <tr>
+        <td>
+          <code>mod(Expression&lt;? extends Number&gt; x, Number y)</code>
+        </td>
+        <td><code>x</code>를 <code>y</code>로 나눈 나머지 값</td>
+      </tr>
+      <tr>
+        <td><code>sqrt(Expression&lt;? extends Number&gt; x)</code></td>
+        <td><code>x</code>의 제곱근</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >diff(Expression&lt;? extends Number&gt; x, Expression&lt;? extends
+            Number&gt; y)</code
+          >
+        </td>
+        <td><code>x</code>와 <code>y</code>의 차이</td>
+      </tr>
+      <tr>
+        <td>
+          <code
+            >prod(Expression&lt;? extends Number&gt; x, Expression&lt;? extends
+            Number&gt; y)</code
+          >
+        </td>
+        <td><code>x</code>와 <code>y</code>의 곱</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>예제 코드</h3>
+  <p>
+    <code>CriteriaBuilder</code>를 사용하여 조건부 쿼리를 작성하는 간단한 예제를
+    보겠습니다.
+  </p>
+  <pre><div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>java</span><div class="flex items-center"><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>코드 복사</button></span></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">import</span> javax.persistence.EntityManager;
+<span class="hljs-keyword">import</span> javax.persistence.PersistenceContext;
+<span class="hljs-keyword">import</span> javax.persistence.criteria.CriteriaBuilder;
+<span class="hljs-keyword">import</span> javax.persistence.criteria.CriteriaQuery;
+<span class="hljs-keyword">import</span> javax.persistence.criteria.Predicate;
+<span class="hljs-keyword">import</span> javax.persistence.criteria.Root;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserRepositoryImpl</span> {
+    <span class="hljs-meta">@PersistenceContext</span>
+    <span class="hljs-keyword">private</span> EntityManager entityManager;
+
+    <span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title function_">findUsersByNameAndAge</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age)</span> {
+        <span class="hljs-type">CriteriaBuilder</span> <span class="hljs-variable">cb</span> <span class="hljs-operator">=</span> entityManager.getCriteriaBuilder();
+        CriteriaQuery&lt;User&gt; query = cb.createQuery(User.class);
+        Root&lt;User&gt; user = query.from(User.class);
+
+        <span class="hljs-type">Predicate</span> <span class="hljs-variable">namePredicate</span> <span class="hljs-operator">=</span> cb.equal(user.get(<span class="hljs-string">"name"</span>), name);
+        <span class="hljs-type">Predicate</span> <span class="hljs-variable">agePredicate</span> <span class="hljs-operator">=</span> cb.greaterThan(user.get(<span class="hljs-string">"age"</span>), age);
+
+        query.select(user).where(cb.and(namePredicate, agePredicate));
+
+        <span class="hljs-keyword">return</span> entityManager.createQuery(query).getResultList();
+    }
+}
+</code></div></div></pre>
+  <p>
+    위 예제는 <code>CriteriaBuilder</code>를 사용하여 <code>name</code>이 특정
+    값과 같고 <code>age</code>가 특정 값보다 큰 사용자를 검색하는 방법을
+    보여줍니다. 다양한 표현식을 활용하여 복잡한 조건을 쉽게 구성할 수 있습니다.
+  </p>
+</div>

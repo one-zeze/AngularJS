@@ -1,6 +1,11 @@
 {
-    "name": "wonzae",
-    "age": 19,
-    "email": "email@gmail.com",
-    "father": "John Wick"
+    "empId": "AA001",
+    "fullName": "wonzae",
+    "dept": "develop",
+    "pos": "officeman",
+    "hire": "20240617",
+    "salary": "10000",
+    "gender": "male",
+    "marry": false,
+    "memo": ""
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ang0802">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    />
+    <!-- load angular via CDN -->
+    <!-- <script src="//code.angularjs.org/1.1.5/angular.min.js"></script> -->
+    <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.3.0-rc.1/angular-route.min.js"></script>
+    <script src="ang0802.js"></script>
+  </head>
+
+  <ul>
+    <li>
+      <a href="#">first<i></i></a>
+    </li>
+    <li>
+      <a href="#/copy">Second<i></i></a>
+    </li>
+  </ul>
+  <body>
+    <p>this is body</p>
+
+    <div class="mainContainer">
+      <div ng-view></div>
+    </div>
+  </body>
+</html>
